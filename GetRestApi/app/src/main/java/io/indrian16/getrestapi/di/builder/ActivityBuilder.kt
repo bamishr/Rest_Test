@@ -107,4 +107,15 @@ abstract class ActivityBuilder {
 
     @ContributesAndroidInjector(modules = [MainActivityModule::class, MainActivityProvide::class])
     abstract fun bindMainActivity(): MainActivity
+}@Module
+abstract class ActivityBuilder {
+
+    @ContributesAndroidInjector(modules = [MainActivityModule::class, MainActivityProvide::class])
+    abstract fun bindMainActivity(): MainActivity
+}
+@Module
+abstract class ActivityBuilder {
+
+    @ContributesAndroidInjector(modules = [MainActivityModule::class, MainActivityProvide::class])
+    abstract fun bindMainActivity(): MainActivity
 }

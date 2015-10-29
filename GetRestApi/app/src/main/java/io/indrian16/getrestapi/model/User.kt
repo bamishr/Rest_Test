@@ -28,3 +28,16 @@ data class User(val id: Int,
                     .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
                     .addConverterFactory(MoshiConverterFactory.create())
                     .build()
+					@Provides
+    @Singleton
+    internal fun provideContext(application: Application): Context = application
+
+    @Provides
+    @Singleton
+    internal fun provideRetrofit(): Retrofit =
+
+            Retrofit.Builder()
+                    .baseUrl(AppConstant.BASE_URL)
+                    .addCallAdapterFactory(RxJava2CallAdapterFactory.create())
+                    .addConverterFactory(MoshiConverterFactory.create())
+                    .build()

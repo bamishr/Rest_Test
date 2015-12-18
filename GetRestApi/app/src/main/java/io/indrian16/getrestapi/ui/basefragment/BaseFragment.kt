@@ -25,3 +25,10 @@ abstract class BaseFragment : Fragment() {
         AndroidSupportInjection.inject(this)
     }
 }
+abstract class BaseFragment : Fragment() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        AndroidSupportInjection.inject(this)
+    }
+}

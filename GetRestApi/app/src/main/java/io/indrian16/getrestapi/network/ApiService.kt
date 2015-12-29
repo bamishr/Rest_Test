@@ -24,4 +24,12 @@ interface ApiService {
 
     @GET("/users")
     fun getUsers(): Observable<List<User>>
+	@GET("/posts")
+    fun getPosts(): Observable<List<Post>>
+
+    @GET("/todos")
+    fun getTodos(): Observable<List<Todo>>
+
+    @GET("/users")
+    fun getUsers(): Observable<List<User>>
 }

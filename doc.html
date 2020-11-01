@@ -1,0 +1,517 @@
+
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=utf-8" />
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" name="viewport"/>
+    <meta name="renderer" content="webkit"/>
+    <title>Starbucks-Ordering API documentation</title>
+    <link rel="stylesheet" href="data:text/css;base64,CiAgICA6Oi13ZWJraXQtc2Nyb2xsYmFyIHsKICAgICAgICB3aWR0aDo4cHg7CiAgICAgICAgbWFyZ2luOjAgMXB4OwogICAgICAgIGJhY2tncm91bmQ6ICNmZGZkZmQ7CiAgICB9CiAgICA6Oi13ZWJraXQtc2Nyb2xsYmFyOmhvcml6b250YWx7CiAgICAgICAgaGVpZ2h0OiA4cHg7CiAgICB9CgogICAgOjotd2Via2l0LXNjcm9sbGJhci1idXR0b257CiAgICAgICAgaGVpZ2h0OiAwOwogICAgfQoKICAgIDo6LXdlYmtpdC1zY3JvbGxiYXItdHJhY2sgewogICAgICAgIGJvcmRlci1yYWRpdXM6IDRweDsKICAgIH0KICAgIDo6LXdlYmtpdC1zY3JvbGxiYXItdHJhY2stcGllY2UgewogICAgICAgIGJhY2tncm91bmQtY29sb3I6ICNmZGZkZmQ7CiAgICAgICAgYm9yZGVyLXJhZGl1czogNHB4OwogICAgfQogICAgOjotd2Via2l0LXNjcm9sbGJhci10aHVtYiB7CiAgICAgICAgd2lkdGg6OHB4OwogICAgICAgIG1hcmdpbjogMCAxcHg7CiAgICAgICAgYm9yZGVyLXJhZGl1czogNHB4OwogICAgICAgIGJhY2tncm91bmQ6ICNjNGM0YzQ7CiAgICB9CiAgICA6Oi13ZWJraXQtc2Nyb2xsYmFyLXRodW1iOmhvdmVyIHsKICAgICAgICBiYWNrZ3JvdW5kOiAjOTA5MDkwOwogICAgfQoKCgoKICAgIGJvZHkgewogICAgICAgIGJhY2tncm91bmQ6ICNmZmZmZmY7CiAgICAgICAgZm9udC1zaXplOiAxNHB4OwogICAgICAgIGxpbmUtaGVpZ2h0OjIuMTAyNTsKICAgICAgICBmb250LWZhbWlseTogIk1lbmxvIiwgIkFuZGFsZSBNb25vIiwgbW9ub3NwYWNlLCAiRHJvaWQgU2FucyBGYWxsYmFjayIsICJNaWNyb3NvZnQgWWFIZWkiLCBzYW5zLXNlcmlmOwogICAgICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7CiAgICAgICAgY29sb3I6ICMzYzNjM2M7CiAgICAgICAgcGFkZGluZzogMCAzOHB4OwogICAgICAgIG1heC13aWR0aDogODIwcHg7CiAgICAgICAgbWFyZ2luOiAwIGF1dG87CiAgICAgICAgd29yZC13cmFwOmJyZWFrLXdvcmQ7CgogICAgICAgIG92ZXJmbG93LXg6IGhpZGRlbjsKICAgICAgICB0ZXh0LXJlbmRlcmluZzogb3B0aW1pemVMZWdpYmlsaXR5OwogICAgICAgIC13ZWJraXQtdGV4dC1zaXplLWFkanVzdDogbm9uZTsKICAgIH0KCiAgICBicnsKICAgICAgICBsaW5lLWhlaWdodDogMi4xMDI1OwogICAgfQoKCgogICAgQG1lZGlhIChtYXgtd2lkdGg6IDYwMHB4KSB7CiAgICAgICAgYm9keXsKICAgICAgICAgICAgcGFkZGluZzogMCAzMHB4OwogICAgICAgIH0KICAgIH0KCiAgICBAbWVkaWEgKG1heC13aWR0aDogNDgwcHgpIHsKICAgICAgICBib2R5ewogICAgICAgICAgICBwYWRkaW5nOiAwIDIwcHg7CiAgICAgICAgfQogICAgfQoKICAgIC5naXN0ewogICAgICAgIHdvcmQtYnJlYWs6IG5vcm1hbDsKICAgIH0KCiAgICAucG9zdHsKICAgICAgICBtYXJnaW4tdG9wOiAxMHB4OwogICAgICAgIG1hcmdpbi1ib3R0b206IDUwcHg7CiAgICAgICAgcG9zaXRpb246IHJlbGF0aXZlOwogICAgfQoKCgogICAgaW1newogICAgICAgIG1heC13aWR0aDogOTglOwogICAgICAgIG1hcmdpbjogMC44ZW0gYXV0byAwLjhlbSBhdXRvOwogICAgICAgIGJvcmRlci1yYWRpdXM6IDVweDsKICAgIH0KCiAgICBoMSBpbWcsIGgyIGltZywgaDMgaW1nLCBoNCBpbWcsIGg1IGltZywgaDYgaW1newogICAgICAgIG1hcmdpbjogYXV0bzsKICAgIH0KCiAgICAueDJfaW1hZ2V7CiAgICAgICAgem9vbTogNTAlOwogICAgfQoKICAgIC54M19pbWFnZXsKICAgICAgICB6b29tOiAzMy4zMyU7CiAgICB9CgogICAgLng0X2ltYWdlewogICAgICAgIHpvb206IDI1JTsKICAgIH0KCgogICAgcCBpbWd7CiAgICAgICAgbWFyZ2luOiAwIGF1dG87CiAgICB9CgogICAgcHsKICAgICAgICB3b3JkLXdyYXA6YnJlYWstd29yZDsKICAgICAgICBvdmVyZmxvdzpoaWRkZW47CiAgICAgICAgbWFyZ2luOiAxLjVlbSAwOwogICAgfQoKICAgIGxpIHB7CiAgICAgICAgbGluZS1oZWlnaHQ6IDEuODg1OwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KCiAgICAucF9wYXJ0IHsKICAgICAgICBtYXJnaW46IDEwcHggMDsKICAgIH0KCiAgICAucF9wYXJ0IHB7CiAgICAgICAgbWFyZ2luOiAwIDAgMC42ZW0gMDsKICAgIH0KCiAgICAvKiB0ZXh0IGluZGVudCBmb3IgY2hpbmVzZSBzdGFydHMqLwogICAgLypoMiwgaDMsIGg0LCBoNSwgaDYsIC5wX3BhcnQgcCwgLnRvZG9faXRlbSwgcHsKICAgICAgICB0ZXh0LWluZGVudDogMHB4OwogICAgfSovCiAgICB0YWJsZSwgcHJlLCBzdmcsIC5jb2RlaGlsaXRldGFibGV7CiAgICAgICAgbWFyZ2luLWxlZnQ6IDBweDsKICAgICAgICBtYXJnaW4tcmlnaHQ6IDBweDsKICAgIH0KCiAgICAuY29kZWhpbGl0ZXRhYmxlIHByZXsKICAgICAgICBtYXJnaW4tbGVmdDogMDsKICAgICAgICBtYXJnaW4tcmlnaHQ6IDA7CgogICAgfQoKICAgIC5jb2RlaGlsaXRldGFibGUgLmNvZGVoaWxpdGUgcHJlewogICAgICAgIGJvcmRlci1sZWZ0OiBub25lOwogICAgfQoKICAgIC8qIHRleHQgaW5kZW50IGZvciBjaGluZXNlIGVuZHMqLwoKCiAgICBibG9ja3F1b3RlIC5wX3BhcnQgcCwgbGkgLnBfcGFydCBwewogICAgICAgIHRleHQtaW5kZW50OiAwICFpbXBvcnRhbnQ7CiAgICB9CgoKICAgIGhyewogICAgICAgIG1hcmdpbjogMzhweCAwOwogICAgICAgIGJvcmRlcjogbm9uZTsKICAgICAgICBib3JkZXItYm90dG9tOiAxcHggZGFzaGVkICNlM2UzZTM7CiAgICAgICAgY29sb3I6ICNlM2UzZTM7CiAgICAgICAgaGVpZ2h0OiAxcHg7CiAgICAgICAgbGluZS1oZWlnaHQ6MXB4OwogICAgICAgIGZvbnQtc2l6ZToxcHg7CiAgICAgICAgb3ZlcmZsb3c6IGhpZGRlbjsKICAgIH0KCgogICAgaDF7CiAgICAgICAgY29sb3I6ICMxMGEzZWU7CiAgICAgICAgZm9udC1zaXplOiAxLjdlbTsKICAgICAgICB0ZXh0LWFsaWduOiBsZWZ0OwogICAgICAgIG1hcmdpbjogMDsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjZlbTsKICAgICAgICBtYXJnaW4tdG9wOiAwLjhlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjZlbTsKICAgIH0KCiAgICBoMSwgaDIsIGgzLCBoNHsKICAgICAgICBjb2xvcjogIzEwYTNlZTsKICAgIH0KCiAgICBoMSwgaDIsIGgzewogICAgICAgIGZvbnQtd2VpZ2h0OiBub3JtYWw7CiAgICB9CgogICAgaDIsIGgzewogICAgICAgIGxpbmUtaGVpZ2h0OiAxLjVlbTsKICAgICAgICBtYXJnaW4tdG9wOiAxLjVlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAwLjhlbTsKICAgIH0KCiAgICBoMiB7CiAgICAgICAgZm9udC1zaXplOiAxLjQ1ZW07CiAgICB9CgogICAgaDMgewogICAgICAgIGZvbnQtc2l6ZTogMS4yNWVtCiAgICB9CgoKICAgIG9sIHsKICAgICAgICBtYXJnaW46IDA7CiAgICB9CgogICAgdWx7CiAgICAgICAgcGFkZGluZzogNXB4IDM4cHg7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIHVsIGxpLCBsaXsKICAgICAgICBwYWRkaW5nOiAwOwogICAgICAgIG1hcmdpbjogMDsKICAgIH0KCiAgICB1bCBwLCBvbCBwewogICAgICAgIG92ZXJmbG93OiB2aXNpYmxlOwogICAgfQoKCiAgICBibG9ja3F1b3RlIHsKICAgICAgICAtbW96LWJveC1zaXppbmc6IGJvcmRlci1ib3g7CiAgICAgICAgYm94LXNpemluZzogYm9yZGVyLWJveDsKICAgICAgICBtYXJnaW46IDEuNmVtIDA7CiAgICAgICAgcGFkZGluZzogMCAwIDAgMS4yZW07CiAgICAgICAgYm9yZGVyLWxlZnQ6IDAuNGVtIHNvbGlkICNkZGRkZGQ7CiAgICAgICAgY29sb3I6ICM4ODg4ODg7CiAgICAgICAgbWluLWhlaWdodDoyMHB4OwogICAgfQoKCiAgICBibG9ja3F1b3RlIHAgewogICAgICAgIG1hcmdpbjogMC44ZW0gMDsKICAgIH0KCiAgICBibG9ja3F1b3RlIHNwYW4ubWRfbGluZSB7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC4yNWVtOwogICAgICAgIG1hcmdpbi10b3A6IDAuMjVlbTsKICAgIH0KCiAgICBibG9ja3F1b3RlIHVsewogICAgICAgIHBhZGRpbmc6IDAgMTVweDsKICAgIH0KCiAgICBibG9ja3F1b3RlIHNtYWxsIHsKICAgICAgICBkaXNwbGF5OiBpbmxpbmUtYmxvY2s7CiAgICAgICAgbWFyZ2luOiAwLjhlbSAwIDAuOGVtIDEuNWVtOwogICAgICAgIGZvbnQtc2l6ZTogMC45ZW07CiAgICAgICAgY29sb3I6ICNjY2M7CiAgICB9CgoKCiAgICB0YWJsZSB7CiAgICAgICAgYmFja2dyb3VuZC1jb2xvcjogdHJhbnNwYXJlbnQ7CiAgICAgICAgYm9yZGVyLWNvbGxhcHNlOiBjb2xsYXBzZTsKICAgICAgICBib3JkZXItc3BhY2luZzogMDsKICAgICAgICBib3JkZXI6IDFweCBzb2xpZCAjZDlkOWQ5OwogICAgICAgIGJvcmRlci1sZWZ0OiAwOwogICAgICAgIG1hcmdpbi10b3A6IDIwcHg7CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMjBweDsKICAgIH0KCgogICAgdGgsIHRkIHsKICAgICAgICBib3JkZXItbGVmdDogMXB4IHNvbGlkICNkOWQ5ZDk7CiAgICAgICAgcGFkZGluZzogOHB4OwogICAgICAgIGxpbmUtaGVpZ2h0OiAyMHB4OwogICAgICAgIHRleHQtYWxpZ246IGxlZnQ7CiAgICAgICAgdmVydGljYWwtYWxpZ246IHRvcDsKICAgICAgICBib3JkZXItdG9wOiAxcHggc29saWQgI2Q5ZDlkOTsKICAgIH0KCgoKCiAgICBjb2RlewogICAgICAgIGJhY2tncm91bmQ6ICNmNWY1ZjU7CiAgICAgICAgcGFkZGluZzogMCA1cHg7CiAgICAgICAgbWFyZ2luOiAwIDJweDsKICAgIH0KCiAgICBwcmV7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgI2U2ZTZlNjsKICAgICAgICBtYXJnaW4tdG9wOiAxLjJlbTsKICAgICAgICBtYXJnaW4tYm90dG9tOiAxLjJlbTsKICAgICAgICBwYWRkaW5nOiAxNXB4IDEwcHg7CiAgICAgICAgZGlzcGxheTogYmxvY2s7CiAgICAgICAgb3ZlcmZsb3c6IGF1dG87CiAgICAgICAgYmFja2dyb3VuZDogI2Y3ZjdmNzsKICAgICAgICBmb250LXNpemU6IDkwJTsKICAgIH0KCiAgICAud2l0aF9saW5lcyBwcmV7CiAgICAgICAgYm9yZGVyOm5vbmU7CiAgICAgICAgbWFyZ2luLXRvcDogMC4yZW07CiAgICAgICAgbWFyZ2luLWJvdHRvbTogMC4yZW07CiAgICAgICAgYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CiAgICB9CgogICAgLmlzX2NvZGVfZmlsZSBwcmV7CiAgICAgICAgYm9yZGVyOiBub25lOwogICAgICAgIGJhY2tncm91bmQ6IHRyYW5zcGFyZW50OwogICAgfQoKICAgIC5jb2RlaGlsaXRlIHByZXsKICAgICAgICB3b3JkLXdyYXA6IG5vcm1hbDsKICAgIH0KCiAgICBwcmUgY29kZXsKICAgICAgICBib3JkZXI6bm9uZTsKICAgICAgICBiYWNrZ3JvdW5kOiBub25lOwogICAgICAgIHBhZGRpbmc6IDA7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQoKICAgIHByZSBwewogICAgICAgIG1hcmdpbjogMDsKICAgICAgICBwYWRkaW5nOiAwOwogICAgfQoKICAgIC5jb2RlaGlsaXRlIHRoLCAuY29kZWhpbGl0ZSB0ZHsKICAgICAgICBsaW5lLWhlaWdodDogMS44ZW07CiAgICB9CgoKICAgIGF7CiAgICAgICAgY29sb3I6ICM0MDgzYzQ7CiAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiBub25lOwogICAgICAgIC8vYm9yZGVyLWJvdHRvbTogMXB4IHNvbGlkIHRyYW5zcGFyZW50OwogICAgfQoKICAgIGE6aG92ZXJ7CiAgICAgICAgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmU7CiAgICAgICAgLy9ib3JkZXItYm90dG9tOiAxcHggc29saWQgIzQwODNjNDsKICAgIH0KCiAgICBzdHJvbmcgewogICAgICAgIGNvbG9yOiAjMDAwMDAwOwogICAgICAgIGZvbnQtd2VpZ2h0OiBib2xkOwogICAgfQoKCiAgICAvKiBmb3IgbWFya2Rvd24gKi8KCiAgICAubGluZW5vcyBwcmV7CgkJYmFja2dyb3VuZDogdHJhbnNwYXJlbnQ7CgkJYm9yZGVyOiBub25lOwoJfQoJLyoKCS5saW5lbm9zewoJICAgIHBhZGRpbmc6IDAgMCAwIDEwcHg7Cgl9CgkqLwoKICAgIC50b2N7CiAgICAgICAgYmFja2dyb3VuZDogI2ZkZmRmZDsKICAgICAgICBib3JkZXItcmFkaXVzOiA1cHg7CiAgICAgICAgYm9yZGVyOiAxcHggc29saWQgI2U2ZTZlNjsKICAgICAgICBtYXJnaW46IDI3cHggMCA0N3B4IDA7CiAgICAgICAgcGFkZGluZzogMTBweCAwOwogICAgfQoKICAgIC50b2MgdWx7CiAgICAgICAgLy9wYWRkaW5nOiA1cHggNDJweDsKICAgIH0KCiAgICAudG9jIHVsIGxpewogICAgICAgIHBhZGRpbmc6IDA7CiAgICAgICAgbWFyZ2luOiAwOwogICAgfQogICAgLnRvYyBhewogICAgICAgIGNvbG9yOiAjM2MzYzNjOwogICAgfQoKCgogICAgLnRvZG9faXRlbXsKICAgICAgICBsaXN0LXN0eWxlOiBub25lOwogICAgICAgIG1hcmdpbi1sZWZ0OiAtMS41ZW0KICAgIH0KICAgIC50b2RvX2l0ZW0gLnRvZG9faXRlbSB7CiAgICAgICAgbWFyZ2luLWxlZnQ6IGF1dG87CiAgICB9CgogICAgLnRvZG9fZG9uZV9pdGVtewogICAgICAgIGNvbG9yOiAjOTk5OTk5OwogICAgfQoKICAgIC50b2RvX3VuZG9uZV9pdGVtewogICAgICAgIGNvbG9yOiAjYzg1YTU3OwogICAgfQoKCiAgICB1bCBsaS50b2RvX2l0ZW17CglsaXN0LXN0eWxlLXR5cGU6IG5vbmU7CiAgICB9CgogICAgdWwgbGkudG9kb19pdGVtOmJlZm9yZXsKICAgICAgICBjb250ZW50OiAnXDI3MTUnOwogICAgICAgIHBhZGRpbmctcmlnaHQ6IDAuN2VtOwogICAgICAgIGZvbnQtZmFtaWx5OiBhcmlhbDsKICAgIH0KCiAgICB1bCBsaS50b2RvX2RvbmVfaXRlbTpiZWZvcmV7CiAgICAgICAgY29udGVudDogJ1wyNzEzJzsKICAgICAgICBwYWRkaW5nLXJpZ2h0OiAwLjdlbTsKICAgICAgICBmb250LWZhbWlseTogYXJpYWw7CiAgICB9CgogICAgdWwgbGkudG9kb19pdGVtIGlucHV0ewogICAgICAgIGRpc3BsYXk6bm9uZQogICAgfQoKCiAgICAvKnB5Z21lbnRzKi8KCiAgICAuY29kZWhpbGl0ZXsKICAgICAgICBiYWNrZ3JvdW5kOiB0cmFuc3BhcmVudCAhaW1wb3J0YW50OwogICAgfQoKICAgIHRhYmxlLmNvZGVoaWxpdGV0YWJsZXsgYm9yZGVyOm5vbmU7IH0KCgogICAgLmNvZGVoaWxpdGV0YWJsZSB0ZHsgYm9yZGVyOiBub25lOyBwYWRkaW5nOiAwO30KCiAgICAuZmxvdy1ncmFwaGlje3RleHQtYWxpZ246IGNlbnRlcn0KCgogICAgdGFibGUsIHRyLCB0ZCwgdGgsIHRib2R5LCB0aGVhZCwgdGZvb3QsIC5tZF9lY2hhcnRzLCBibG9ja3F1b3RlIC5tZF9saW5lewogICAgICAgIHBhZ2UtYnJlYWstaW5zaWRlOiBhdm9pZCAhaW1wb3J0YW50OwogICAgfQoKICAgIC5mb290bm90ZXMgLm1kX2xpbmV7CiAgICAgICAgZGlzcGxheTogaW5saW5lICFpbXBvcnRhbnQ7CiAgICB9CgoKICAgIC5pbWdfcnRfOTB7CiAgICAgICAgdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLW1zLXRyYW5zZm9ybTpyb3RhdGUoOTBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSg5MGRlZyk7CiAgICAgICAgLXdlYmtpdC10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgICAgICAtby10cmFuc2Zvcm06cm90YXRlKDkwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMTgwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgxODBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMTgwZGVnKTsKICAgIH0KICAgIC5pbWdfcnRfMjcwewogICAgICAgIHRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgICAgICAtbXMtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1tb3otdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC13ZWJraXQtdHJhbnNmb3JtOnJvdGF0ZSgyNzBkZWcpOwogICAgICAgIC1vLXRyYW5zZm9ybTpyb3RhdGUoMjcwZGVnKTsKICAgIH0KCiAgICAubWRfaGFzX2Jsb2NrX2JlbG93ewogICAgICAgIG1hcmdpbi1ib3R0b206IDAuMWVtICFpbXBvcnRhbnQ7CiAgICB9CiAgICAubWRfaGFzX2Jsb2NrX2JlbG93X2ltZ3sKICAgICAgICBtYXJnaW4tYm90dG9tOiAtMC42ZW0gIWltcG9ydGFudDsKICAgIH0KCgoKICAgICAgICBzcGFuLm1kX2xpbmV7bWFyZ2luLWJvdHRvbTowLjVlbTsgZGlzcGxheTpibG9jazsgbGluZS1oZWlnaHQ6MS44MTg2NjI1fQogICAgICAgIC5tZF9saW5lIGJyeyBkaXNwbGF5OiBub25lO30KICAgICAgICAuY29kZWhpbGl0ZSAuaGxsIHsgYmFja2dyb3VuZC1jb2xvcjogI2ZmZmZjYyB9Ci5jb2RlaGlsaXRlICB7IGJhY2tncm91bmQ6ICNlZWVlZGQ7IH0KLmNvZGVoaWxpdGUgLmMgeyBjb2xvcjogIzk5OTk5OSB9IC8qIENvbW1lbnQgKi8KLmNvZGVoaWxpdGUgLmVyciB7IGNvbG9yOiAjYTYxNzE3OyBiYWNrZ3JvdW5kLWNvbG9yOiAjZTNkMmQyIH0gLyogRXJyb3IgKi8KLmNvZGVoaWxpdGUgLmsgeyBjb2xvcjogIzhCMDA4QjsgZm9udC13ZWlnaHQ6IGJvbGQgfSAvKiBLZXl3b3JkICovCi5jb2RlaGlsaXRlIC5uIHsgY29sb3I6ICM1NTU1NTUgfSAvKiBOYW1lICovCi5jb2RlaGlsaXRlIC5vIHsgY29sb3I6ICM1NTU1NTUgfSAvKiBPcGVyYXRvciAqLwouY29kZWhpbGl0ZSAucCB7IGNvbG9yOiAjNTU1NTU1IH0gLyogUHVuY3R1YXRpb24gKi8KLmNvZGVoaWxpdGUgLmNoIHsgY29sb3I6ICM5OTk5OTkgfSAvKiBDb21tZW50Lkhhc2hiYW5nICovCi5jb2RlaGlsaXRlIC5jbSB7IGNvbG9yOiAjOTk5OTk5IH0gLyogQ29tbWVudC5NdWx0aWxpbmUgKi8KLmNvZGVoaWxpdGUgLmNwIHsgY29sb3I6ICMxZTg4OWIgfSAvKiBDb21tZW50LlByZXByb2MgKi8KLmNvZGVoaWxpdGUgLmNwZiB7IGNvbG9yOiAjOTk5OTk5IH0gLyogQ29tbWVudC5QcmVwcm9jRmlsZSAqLwouY29kZWhpbGl0ZSAuYzEgeyBjb2xvcjogIzk5OTk5OSB9IC8qIENvbW1lbnQuU2luZ2xlICovCi5jb2RlaGlsaXRlIC5jcyB7IGNvbG9yOiAjOEIwMDhCOyBmb250LXdlaWdodDogYm9sZCB9IC8qIENvbW1lbnQuU3BlY2lhbCAqLwouY29kZWhpbGl0ZSAuZ2QgeyBjb2xvcjogI2FhMDAwMCB9IC8qIEdlbmVyaWMuRGVsZXRlZCAqLwouY29kZWhpbGl0ZSAuZ2UgeyBmb250LXN0eWxlOiBpdGFsaWMgfSAvKiBHZW5lcmljLkVtcGggKi8KLmNvZGVoaWxpdGUgLmdyIHsgY29sb3I6ICNhYTAwMDAgfSAvKiBHZW5lcmljLkVycm9yICovCi5jb2RlaGlsaXRlIC5naCB7IGNvbG9yOiAjMDAwMDgwOyBmb250LXdlaWdodDogYm9sZCB9IC8qIEdlbmVyaWMuSGVhZGluZyAqLwouY29kZWhpbGl0ZSAuZ2kgeyBjb2xvcjogIzAwYWEwMCB9IC8qIEdlbmVyaWMuSW5zZXJ0ZWQgKi8KLmNvZGVoaWxpdGUgLmdvIHsgY29sb3I6ICM4ODg4ODggfSAvKiBHZW5lcmljLk91dHB1dCAqLwouY29kZWhpbGl0ZSAuZ3AgeyBjb2xvcjogIzU1NTU1NSB9IC8qIEdlbmVyaWMuUHJvbXB0ICovCi5jb2RlaGlsaXRlIC5ncyB7IGZvbnQtd2VpZ2h0OiBib2xkIH0gLyogR2VuZXJpYy5TdHJvbmcgKi8KLmNvZGVoaWxpdGUgLmd1IHsgY29sb3I6ICM4MDAwODA7IGZvbnQtd2VpZ2h0OiBib2xkIH0gLyogR2VuZXJpYy5TdWJoZWFkaW5nICovCi5jb2RlaGlsaXRlIC5ndCB7IGNvbG9yOiAjYWEwMDAwIH0gLyogR2VuZXJpYy5UcmFjZWJhY2sgKi8KLmNvZGVoaWxpdGUgLmtjIHsgY29sb3I6ICM4QjAwOEI7IGZvbnQtd2VpZ2h0OiBib2xkIH0gLyogS2V5d29yZC5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAua2QgeyBjb2xvcjogIzhCMDA4QjsgZm9udC13ZWlnaHQ6IGJvbGQgfSAvKiBLZXl3b3JkLkRlY2xhcmF0aW9uICovCi5jb2RlaGlsaXRlIC5rbiB7IGNvbG9yOiAjOEIwMDhCOyBmb250LXdlaWdodDogYm9sZCB9IC8qIEtleXdvcmQuTmFtZXNwYWNlICovCi5jb2RlaGlsaXRlIC5rcCB7IGNvbG9yOiAjOEIwMDhCOyBmb250LXdlaWdodDogYm9sZCB9IC8qIEtleXdvcmQuUHNldWRvICovCi5jb2RlaGlsaXRlIC5rciB7IGNvbG9yOiAjOEIwMDhCOyBmb250LXdlaWdodDogYm9sZCB9IC8qIEtleXdvcmQuUmVzZXJ2ZWQgKi8KLmNvZGVoaWxpdGUgLmt0IHsgY29sb3I6ICNhN2E3YTc7IGZvbnQtd2VpZ2h0OiBib2xkIH0gLyogS2V5d29yZC5UeXBlICovCi5jb2RlaGlsaXRlIC5tIHsgY29sb3I6ICNCNDUyQ0QgfSAvKiBMaXRlcmFsLk51bWJlciAqLwouY29kZWhpbGl0ZSAucyB7IGNvbG9yOiAjQ0Q1NTU1IH0gLyogTGl0ZXJhbC5TdHJpbmcgKi8KLmNvZGVoaWxpdGUgLm5hIHsgY29sb3I6ICM2NThiMDAgfSAvKiBOYW1lLkF0dHJpYnV0ZSAqLwouY29kZWhpbGl0ZSAubmIgeyBjb2xvcjogIzY1OGIwMCB9IC8qIE5hbWUuQnVpbHRpbiAqLwouY29kZWhpbGl0ZSAubmMgeyBjb2xvcjogIzAwOGI0NTsgZm9udC13ZWlnaHQ6IGJvbGQgfSAvKiBOYW1lLkNsYXNzICovCi5jb2RlaGlsaXRlIC5ubyB7IGNvbG9yOiAjMDA2ODhCIH0gLyogTmFtZS5Db25zdGFudCAqLwouY29kZWhpbGl0ZSAubmQgeyBjb2xvcjogIzcwN2E3YyB9IC8qIE5hbWUuRGVjb3JhdG9yICovCi5jb2RlaGlsaXRlIC5uaSB7IGNvbG9yOiAjNTU1NTU1IH0gLyogTmFtZS5FbnRpdHkgKi8KLmNvZGVoaWxpdGUgLm5lIHsgY29sb3I6ICMwMDhiNDU7IGZvbnQtd2VpZ2h0OiBib2xkIH0gLyogTmFtZS5FeGNlcHRpb24gKi8KLmNvZGVoaWxpdGUgLm5mIHsgY29sb3I6ICMwMDhiNDUgfSAvKiBOYW1lLkZ1bmN0aW9uICovCi5jb2RlaGlsaXRlIC5ubCB7IGNvbG9yOiAjNTU1NTU1IH0gLyogTmFtZS5MYWJlbCAqLwouY29kZWhpbGl0ZSAubm4geyBjb2xvcjogIzAwOGI0NTsgdGV4dC1kZWNvcmF0aW9uOiB1bmRlcmxpbmUgfSAvKiBOYW1lLk5hbWVzcGFjZSAqLwouY29kZWhpbGl0ZSAubnggeyBjb2xvcjogIzU1NTU1NSB9IC8qIE5hbWUuT3RoZXIgKi8KLmNvZGVoaWxpdGUgLnB5IHsgY29sb3I6ICM1NTU1NTUgfSAvKiBOYW1lLlByb3BlcnR5ICovCi5jb2RlaGlsaXRlIC5udCB7IGNvbG9yOiAjOEIwMDhCOyBmb250LXdlaWdodDogYm9sZCB9IC8qIE5hbWUuVGFnICovCi5jb2RlaGlsaXRlIC5udiB7IGNvbG9yOiAjMDA2ODhCIH0gLyogTmFtZS5WYXJpYWJsZSAqLwouY29kZWhpbGl0ZSAub3cgeyBjb2xvcjogIzhCMDA4QiB9IC8qIE9wZXJhdG9yLldvcmQgKi8KLmNvZGVoaWxpdGUgLncgeyBjb2xvcjogI2JiYmJiYiB9IC8qIFRleHQuV2hpdGVzcGFjZSAqLwouY29kZWhpbGl0ZSAubWIgeyBjb2xvcjogI0I0NTJDRCB9IC8qIExpdGVyYWwuTnVtYmVyLkJpbiAqLwouY29kZWhpbGl0ZSAubWYgeyBjb2xvcjogI0I0NTJDRCB9IC8qIExpdGVyYWwuTnVtYmVyLkZsb2F0ICovCi5jb2RlaGlsaXRlIC5taCB7IGNvbG9yOiAjQjQ1MkNEIH0gLyogTGl0ZXJhbC5OdW1iZXIuSGV4ICovCi5jb2RlaGlsaXRlIC5taSB7IGNvbG9yOiAjQjQ1MkNEIH0gLyogTGl0ZXJhbC5OdW1iZXIuSW50ZWdlciAqLwouY29kZWhpbGl0ZSAubW8geyBjb2xvcjogI0I0NTJDRCB9IC8qIExpdGVyYWwuTnVtYmVyLk9jdCAqLwouY29kZWhpbGl0ZSAuc2IgeyBjb2xvcjogI0NENTU1NSB9IC8qIExpdGVyYWwuU3RyaW5nLkJhY2t0aWNrICovCi5jb2RlaGlsaXRlIC5zYyB7IGNvbG9yOiAjQ0Q1NTU1IH0gLyogTGl0ZXJhbC5TdHJpbmcuQ2hhciAqLwouY29kZWhpbGl0ZSAuc2QgeyBjb2xvcjogI0NENTU1NSB9IC8qIExpdGVyYWwuU3RyaW5nLkRvYyAqLwouY29kZWhpbGl0ZSAuczIgeyBjb2xvcjogI0NENTU1NSB9IC8qIExpdGVyYWwuU3RyaW5nLkRvdWJsZSAqLwouY29kZWhpbGl0ZSAuc2UgeyBjb2xvcjogI0NENTU1NSB9IC8qIExpdGVyYWwuU3RyaW5nLkVzY2FwZSAqLwouY29kZWhpbGl0ZSAuc2ggeyBjb2xvcjogIzFjN2U3MTsgZm9udC1zdHlsZTogaXRhbGljIH0gLyogTGl0ZXJhbC5TdHJpbmcuSGVyZWRvYyAqLwouY29kZWhpbGl0ZSAuc2kgeyBjb2xvcjogI0NENTU1NSB9IC8qIExpdGVyYWwuU3RyaW5nLkludGVycG9sICovCi5jb2RlaGlsaXRlIC5zeCB7IGNvbG9yOiAjY2I2YzIwIH0gLyogTGl0ZXJhbC5TdHJpbmcuT3RoZXIgKi8KLmNvZGVoaWxpdGUgLnNyIHsgY29sb3I6ICMxYzdlNzEgfSAvKiBMaXRlcmFsLlN0cmluZy5SZWdleCAqLwouY29kZWhpbGl0ZSAuczEgeyBjb2xvcjogI0NENTU1NSB9IC8qIExpdGVyYWwuU3RyaW5nLlNpbmdsZSAqLwouY29kZWhpbGl0ZSAuc3MgeyBjb2xvcjogI0NENTU1NSB9IC8qIExpdGVyYWwuU3RyaW5nLlN5bWJvbCAqLwouY29kZWhpbGl0ZSAuYnAgeyBjb2xvcjogIzY1OGIwMCB9IC8qIE5hbWUuQnVpbHRpbi5Qc2V1ZG8gKi8KLmNvZGVoaWxpdGUgLnZjIHsgY29sb3I6ICMwMDY4OEIgfSAvKiBOYW1lLlZhcmlhYmxlLkNsYXNzICovCi5jb2RlaGlsaXRlIC52ZyB7IGNvbG9yOiAjMDA2ODhCIH0gLyogTmFtZS5WYXJpYWJsZS5HbG9iYWwgKi8KLmNvZGVoaWxpdGUgLnZpIHsgY29sb3I6ICMwMDY4OEIgfSAvKiBOYW1lLlZhcmlhYmxlLkluc3RhbmNlICovCi5jb2RlaGlsaXRlIC5pbCB7IGNvbG9yOiAjQjQ1MkNEIH0gLyogTGl0ZXJhbC5OdW1iZXIuSW50ZWdlci5Mb25nICov">
+    <!--header_scripts-->
+</head>
+<body>
+
+
+<div class="post">
+    
+    <div class="post_body">
+        <h1 id="toc_0">Starbucks-Ordering API documentation</h1>
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed"><strong>Yuyou Xu 5143390</strong></span>
+</p>
+
+
+<h2 id="toc_1">1.0 Overview</h2>
+
+<p class="md_block">
+    <span class="md_line">This documentaion aims to help users understand how to interact with this web API.</span>
+</p>
+
+
+<h2 id="toc_2">2.0 Assumption</h2>
+
+<p class="md_block">
+    <span class="md_line">In this coffee shop, the types of the coffee and the additions are designed with a specific price (the price of a order could be calculated by the server): </span>
+</p>
+
+<table>
+ <thead><tr><th style="text-align:center">Coffee</th>
+<th style="text-align:center">Price</th>
+ </tr>
+</thead>
+ <tbody><tr><td style="text-align:center">lattle        </td>
+<td style="text-align:center">     $ 4.0</td>
+</tr>
+<tr><td style="text-align:center">macchiato        </td>
+<td style="text-align:center">     $ 5.35</td>
+</tr>
+<tr><td style="text-align:center">cappuccino        </td>
+<td style="text-align:center">   $ 7.5</td>
+</tr>
+<tr><td style="text-align:center">mocha        </td>
+<td style="text-align:center">    $ 8.0</td>
+</tr>
+</tbody> 
+</table>
+<!--block_code_end--><table>
+ <thead><tr><th style="text-align:center">Additions</th>
+<th style="text-align:center">Price</th>
+ </tr>
+</thead>
+ <tbody><tr><td style="text-align:center">hot        </td>
+<td style="text-align:center">      $ 0.5</td>
+</tr>
+<tr><td style="text-align:center">shot        </td>
+<td style="text-align:center">      $ 1.0</td>
+</tr>
+<tr><td style="text-align:center">none        </td>
+<td style="text-align:center">      $ 0.0</td>
+</tr>
+</tbody> 
+</table>
+<!--block_code_end-->
+<h2 id="toc_3">3.0 Resources and Attributes</h2>
+
+<p class="md_block">
+    <span class="md_line">This section introduces the Resources and the attributes for them.</span>
+</p>
+
+
+<h3 id="toc_4">Order</h3>
+<table>
+ <thead><tr><th style="text-align:center">Attribute</th>
+<th style="text-align:center">Description</th>
+<th style="text-align:center">Required Input</th>
+<th style="text-align:center">Default Value</th>
+ </tr>
+</thead>
+ <tbody><tr><td style="text-align:center">OID        </td>
+<td style="text-align:center">       Identify Key (str)</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">\</td>
+</tr>
+<tr><td style="text-align:center">type       </td>
+<td style="text-align:center">     coffee type (str)</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">\</td>
+</tr>
+<tr><td style="text-align:center">cost       </td>
+<td style="text-align:center">price of the oreder (float) </td>
+<td style="text-align:center">\</td>
+<td style="text-align:center">(automatically returned value)</td>
+</tr>
+<tr><td style="text-align:center">payment</td>
+<td style="text-align:center">a link to the payment </td>
+<td style="text-align:center">\</td>
+<td style="text-align:center">(automatically returned link)</td>
+</tr>
+<tr><td style="text-align:center">additions</td>
+<td style="text-align:center">User's special flavour (str)</td>
+<td style="text-align:center">\</td>
+<td style="text-align:center">none</td>
+</tr>
+<tr><td style="text-align:center">status</td>
+<td style="text-align:center">status flag of the order: open, processing, canceled, ready (str)</td>
+<td style="text-align:center">\</td>
+<td style="text-align:center">open</td>
+</tr>
+<tr><td style="text-align:center">Pstatus</td>
+<td style="text-align:center">status flag of the payment information: paid, unpaid  (str)</td>
+<td style="text-align:center">\</td>
+<td style="text-align:center">unpaid</td>
+</tr>
+</tbody> 
+</table>
+<!--block_code_end-->
+<h3 id="toc_5">Payment</h3>
+<table>
+ <thead><tr><th style="text-align:center">Attribute</th>
+<th style="text-align:center">Description</th>
+<th style="text-align:center">Required Input</th>
+<th style="text-align:center">Default Value</th>
+ </tr>
+</thead>
+ <tbody><tr><td style="text-align:center">PID        </td>
+<td style="text-align:center">       Identify Key (str)</td>
+<td style="text-align:center">\</td>
+<td style="text-align:center">same as OID</td>
+</tr>
+<tr><td style="text-align:center">Ptype        </td>
+<td style="text-align:center">      Payment type: cash or card (str)</td>
+<td style="text-align:center">  Yes</td>
+<td style="text-align:center">\</td>
+</tr>
+<tr><td style="text-align:center">amount        </td>
+<td style="text-align:center">     coffee type (float)</td>
+<td style="text-align:center">Yes</td>
+<td style="text-align:center">\</td>
+</tr>
+<tr><td style="text-align:center">cardNo       </td>
+<td style="text-align:center">price of the oreder (int)</td>
+<td style="text-align:center">\</td>
+<td style="text-align:center">0</td>
+</tr>
+<tr><td style="text-align:center">expireDate</td>
+<td style="text-align:center">a link to the payment (str)</td>
+<td style="text-align:center">\</td>
+<td style="text-align:center">none</td>
+</tr>
+<tr><td style="text-align:center">name</td>
+<td style="text-align:center">User's special flavour (str)</td>
+<td style="text-align:center">\</td>
+<td style="text-align:center">none</td>
+</tr>
+</tbody> 
+</table>
+<!--block_code_end-->
+<h2 id="toc_6">4.0 Operations</h2>
+
+<p class="md_block">
+    <span class="md_line">This sections shows how to use HTTP request to interact with the API. Also, the sample outputs are given.<br /></span>
+    <span class="md_line"><strong> On orders:</strong></span>
+</p>
+
+
+<h4 id="toc_7">4.1.1 Creating Order</h4>
+
+<ul>
+<li>Route: /orders</li>
+<li>Method: POST</li>
+<li>Sample Input: </li>
+</ul>
+
+<p class="md_block md_has_block_below md_has_block_below_ul">
+    <span class="md_line"><strong>POST</strong> http://127.0.0.1:5000/orders?OID=a&amp;type=lattle</span>
+</p>
+
+
+<ul>
+<li>Sample Output: </li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed"><strong>201 CREATED</strong><br /></span>
+    <span class="md_line">{<br /></span>
+    <span class="md_line">  &quot;OrderID&quot;: &quot;a&quot;, <br /></span>
+    <span class="md_line">  &quot;PaymentLink&quot;: &quot;/payments/a&quot;, <br /></span>
+    <span class="md_line">  &quot;TotalCost&quot;: 4.0<br /></span>
+    <span class="md_line">}<br /></span>
+    <span class="md_line">or (if the input parameters are illegal)<br /></span>
+    <span class="md_line md_line_dom_embed"><strong>404 NOT FOUND</strong><br /></span>
+    <span class="md_line">{<br /></span>
+    <span class="md_line">  &quot;Input&quot;: false<br /></span>
+    <span class="md_line">}</span>
+</p>
+
+
+<h4 id="toc_8">4.1.2 Getting Order Details</h4>
+
+<ul>
+<li>Route: /orders/&lt;OID&gt;</li>
+<li>Method: GET</li>
+<li>Sample Input:</li>
+</ul>
+
+<p class="md_block md_has_block_below md_has_block_below_ul">
+    <span class="md_line"><strong>GET</strong> http://127.0.0.1:5000/orders/a</span>
+</p>
+
+
+<ul>
+<li>Sample Output:</li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed"><strong>200 OK</strong><br /></span>
+    <span class="md_line">{<br /></span>
+    <span class="md_line">  &quot;OID&quot;: &quot;a&quot;, <br /></span>
+    <span class="md_line">  &quot;Pstatus&quot;: &quot;unpaid&quot;, <br /></span>
+    <span class="md_line">  &quot;additions&quot;: &quot;none&quot;, <br /></span>
+    <span class="md_line">  &quot;cost&quot;: 4.0, <br /></span>
+    <span class="md_line">  &quot;payment&quot;: &quot;/payments/a&quot;, <br /></span>
+    <span class="md_line">  &quot;status&quot;: &quot;open&quot;, <br /></span>
+    <span class="md_line">  &quot;type&quot;: &quot;lattle&quot;<br /></span>
+    <span class="md_line">}<br /></span>
+    <span class="md_line">or (if the searched ID is not valid)<br /></span>
+    <span class="md_line md_line_dom_embed"><strong>404 NOT FOUND</strong><br /></span>
+    <span class="md_line">{<br /></span>
+    <span class="md_line">  &quot;ID&quot;: false<br /></span>
+    <span class="md_line">}</span>
+</p>
+
+
+<h4 id="toc_9">4.1.3 Getting List of all Open Orders (category by statues)</h4>
+
+<ul>
+<li>Route: /orders-matching/&lt;status&gt;</li>
+<li>Method: GET</li>
+<li>Sample Input:</li>
+</ul>
+
+<p class="md_block md_has_block_below md_has_block_below_ul">
+    <span class="md_line"><strong>GET</strong> http://127.0.0.1:5000/orders-matching/open</span>
+</p>
+
+
+<ul>
+<li>Sample Output: there will be a list containing all the orders that matches the specific state</li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed"><strong>200 OK</strong><br /></span>
+    <span class="md_line">[<br /></span>
+    <span class="md_line">  {<br /></span>
+    <span class="md_line">    &quot;OID&quot;: &quot;a&quot;, <br /></span>
+    <span class="md_line">    &quot;Pstatus&quot;: &quot;unpaid&quot;, <br /></span>
+    <span class="md_line">    &quot;additions&quot;: &quot;none&quot;, <br /></span>
+    <span class="md_line">    &quot;cost&quot;: 4.0, <br /></span>
+    <span class="md_line">    &quot;payment&quot;: &quot;/payments/a&quot;, <br /></span>
+    <span class="md_line">    &quot;status&quot;: &quot;open&quot;, <br /></span>
+    <span class="md_line">    &quot;type&quot;: &quot;lattle&quot;<br /></span>
+    <span class="md_line">  }<br /></span>
+    <span class="md_line">]</span>
+</p>
+
+
+<h4 id="toc_10">4.1.4 Getting Orders List</h4>
+
+<ul>
+<li>Route: /orders</li>
+<li>Method: GET</li>
+<li>Sample Input:</li>
+</ul>
+
+<p class="md_block md_has_block_below md_has_block_below_ul">
+    <span class="md_line"><strong>GET</strong> http://127.0.0.1:5000/orders</span>
+</p>
+
+
+<ul>
+<li>Sample Output: there will be a list containing all the orders</li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed"><strong>200 OK</strong><br /></span>
+    <span class="md_line">[<br /></span>
+    <span class="md_line">  {<br /></span>
+    <span class="md_line">    &quot;OID&quot;: &quot;a&quot;, <br /></span>
+    <span class="md_line">    &quot;Pstatus&quot;: &quot;unpaid&quot;, <br /></span>
+    <span class="md_line">    &quot;additions&quot;: &quot;none&quot;, <br /></span>
+    <span class="md_line">    &quot;cost&quot;: 4.0, <br /></span>
+    <span class="md_line">    &quot;payment&quot;: &quot;/payments/a&quot;, <br /></span>
+    <span class="md_line">    &quot;status&quot;: &quot;open&quot;, <br /></span>
+    <span class="md_line">    &quot;type&quot;: &quot;lattle&quot;<br /></span>
+    <span class="md_line">  }<br /></span>
+    <span class="md_line">]</span>
+</p>
+
+
+<h4 id="toc_11">4.1.5 Order Updating - by cashier</h4>
+
+<ul>
+<li>Route: /orders/&lt;OID&gt;</li>
+<li>Method: PUT</li>
+<li>Sample Input:</li>
+</ul>
+
+<p class="md_block md_has_block_below md_has_block_below_ul">
+    <span class="md_line"><strong>PUT</strong> http://127.0.0.1:5000/orders/a?type=mocha&amp;additions=hot</span>
+</p>
+
+
+<ul>
+<li>Sample Output:</li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed"><strong>200 OK</strong><br /></span>
+    <span class="md_line">{<br /></span>
+    <span class="md_line">  &quot;OrderID&quot;: &quot;a&quot;<br /></span>
+    <span class="md_line">}</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line">or (if the input parameters are illegal):</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed"><strong>404 NOT FOUND</strong><br /></span>
+    <span class="md_line">{<br /></span>
+    <span class="md_line">  &quot;Input&quot;: false<br /></span>
+    <span class="md_line">}</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line">or (if the searched ID is not valid; <strong>if the order&#39;s flags are &#39;processing&#39; or &#39;paid&#39;</strong>)</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed"><strong>404 NOT FOUND</strong><br /></span>
+    <span class="md_line">{<br /></span>
+    <span class="md_line">  &quot;OrderID&quot;: false<br /></span>
+    <span class="md_line">}</span>
+</p>
+
+
+<h4 id="toc_12">4.1.6 Order Updating of status - by barista</h4>
+
+<ul>
+<li>Route: /orders/&lt;OID&gt;</li>
+<li>Method: PATCH</li>
+<li>Sample Input:</li>
+</ul>
+
+<p class="md_block md_has_block_below md_has_block_below_ul">
+    <span class="md_line"><strong>PATCH</strong> http://127.0.0.1:5000/orders/a</span>
+</p>
+
+
+<ul>
+<li>Sample Output:</li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed"><strong>200 OK</strong><br /></span>
+    <span class="md_line">{<br /></span>
+    <span class="md_line">  &quot;OrderID&quot;: &quot;a&quot;<br /></span>
+    <span class="md_line">}<br /></span>
+    <span class="md_line">or (if the searched ID is not valid)<br /></span>
+    <span class="md_line md_line_dom_embed"><strong>404 NOT FOUND</strong><br /></span>
+    <span class="md_line">{<br /></span>
+    <span class="md_line">  &quot;OrderID&quot;: false<br /></span>
+    <span class="md_line">}</span>
+</p>
+
+
+<h4 id="toc_13">4.1.7 Cancelling Order</h4>
+
+<ul>
+<li>Route: /orders/&lt;OID&gt;</li>
+<li>Method: DELETE</li>
+<li>Sample Input:</li>
+</ul>
+
+<p class="md_block md_has_block_below md_has_block_below_ul">
+    <span class="md_line"><strong>DELETE</strong> http://127.0.0.1:5000/orders/a</span>
+</p>
+
+
+<ul>
+<li>Sample Output:</li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed"><strong>200 OK</strong><br /></span>
+    <span class="md_line">{<br /></span>
+    <span class="md_line">  &quot;OrderID&quot;: &quot;a&quot;<br /></span>
+    <span class="md_line">}<br /></span>
+    <span class="md_line">or (if the searched ID is not valid)<br /></span>
+    <span class="md_line md_line_dom_embed"><strong>404 NOT FOUND</strong><br /></span>
+    <span class="md_line">{<br /></span>
+    <span class="md_line">  &quot;OrderID&quot;: false<br /></span>
+    <span class="md_line">}</span>
+</p>
+
+
+<p class="md_block">
+    <span class="md_line"><strong> On payment:</strong></span>
+</p>
+
+
+<h4 id="toc_14">4.2.1 Creating a Payment</h4>
+
+<ul>
+<li>Route: /payments/&lt;PID&gt;</li>
+<li>Method: PUT</li>
+<li>Sample Input:</li>
+</ul>
+
+<p class="md_block md_has_block_below md_has_block_below_ul">
+    <span class="md_line"><strong>PUT</strong> http://127.0.0.1:5000/payments/a?Ptype=card&amp;amount=10.0&amp;cardNo=001&amp;expireDate=20100109&amp;name=lily</span>
+</p>
+
+
+<ul>
+<li>Sample Output:</li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed"><strong>200 OK</strong><br /></span>
+    <span class="md_line">{<br /></span>
+    <span class="md_line">  &quot;PID&quot;: &quot;a&quot;, <br /></span>
+    <span class="md_line">  &quot;Ptype&quot;: &quot;card&quot;, <br /></span>
+    <span class="md_line">  &quot;amount&quot;: 10.0, <br /></span>
+    <span class="md_line">  &quot;cardNo&quot;: 1, <br /></span>
+    <span class="md_line">  &quot;expireDate&quot;: &quot;20100109&quot;, <br /></span>
+    <span class="md_line">  &quot;name&quot;: &quot;lily&quot;<br /></span>
+    <span class="md_line">}<br /></span>
+    <span class="md_line">or (if the input parameters are illegal)<br /></span>
+    <span class="md_line"><strong>400 BAD REQUEST </strong><br /></span>
+    <span class="md_line">&lt;!DOCTYPE HTML PUBLIC &quot;-//W3C//DTD HTML 3.2 Final//EN&quot;&gt;<br /></span>
+    <span class="md_line">&lt;title&gt;400 Bad Request&lt;/title&gt;<br /></span>
+    <span class="md_line">&lt;h1&gt;Bad Request&lt;/h1&gt;<br /></span>
+    <span class="md_line">&lt;p&gt;The browser (or proxy) sent a request that this server could not understand.&lt;/p&gt;</span>
+</p>
+
+
+<h4 id="toc_15">4.2.2 Getting Payment Details for an Order</h4>
+
+<ul>
+<li>Route: /payments/&lt;PID&gt;</li>
+<li>Method: GET</li>
+<li>Sample Input:</li>
+</ul>
+
+<p class="md_block md_has_block_below md_has_block_below_ul">
+    <span class="md_line"><strong>GET</strong> http://127.0.0.1:5000/payments/a</span>
+</p>
+
+
+<ul>
+<li>Sample Output:</li>
+</ul>
+
+<p class="md_block">
+    <span class="md_line md_line_dom_embed"><strong>200 OK</strong><br /></span>
+    <span class="md_line">{<br /></span>
+    <span class="md_line">  &quot;PID&quot;: &quot;a&quot;, <br /></span>
+    <span class="md_line">  &quot;Ptype&quot;: &quot;card&quot;, <br /></span>
+    <span class="md_line">  &quot;amount&quot;: 10.0, <br /></span>
+    <span class="md_line">  &quot;cardNo&quot;: 1, <br /></span>
+    <span class="md_line">  &quot;expireDate&quot;: &quot;20100109&quot;, <br /></span>
+    <span class="md_line">  &quot;name&quot;: &quot;lily&quot;<br /></span>
+    <span class="md_line">}<br /></span>
+    <span class="md_line">or (if the searched payment ID is not valid)<br /></span>
+    <span class="md_line md_line_dom_embed"><strong>404 NOT FOUND</strong><br /></span>
+    <span class="md_line">{<br /></span>
+    <span class="md_line">  &quot;Payment&quot;: false<br /></span>
+    <span class="md_line">}</span>
+</p>
+
+
+<h2 id="toc_16">5.0 Additional Info</h2>
+
+<ul>
+<li>Every order has two status flags:
+
+<ul>
+<li>status flag : open, processing, canceled, ready</li>
+<li>Pstatus flag: paid, unpaid</li>
+</ul></li>
+<li>Cashier use PUT to update an order while Barista use PATCH to change the status of the order to &#39;processing&#39;.</li>
+<li>The payment link is given when the order is created with initial Pstatus: &#39;unpaid&#39;.  Cashier only updates(PUT) the payment with the given URI(payment/&lt;PID&gt;) to create it. After that, the Pstatus changes to &#39;paid&#39;.</li>
+<li>Barista use GET /payment/&lt;PID&gt; to check the payment information. After checking, the status of the order is changed to &#39;ready&#39;, which means this drink can be released. </li>
+<li>An order cannot be updated if its status is &#39;processing&#39; (i.e  open orders can be updated). Also, it cannot be updated if the Pstatus is &quot;paid&quot;.</li>
+</ul>
+    </div>
+</div>
+
+<!--mathjax-->
+
+</body>
+</html>

@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">GetRestApi</string>
+
+    <string name="fragment0">Post</string>
+    <string name="fragment1">Todo</string>
+    <string name="fragment2">User</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="completed_label">Completed</string>
+    <string name="desc_avatar">Avatar</string>
+    <string name="user_email_label">Sincere@april.biz</string>
+</resources>
